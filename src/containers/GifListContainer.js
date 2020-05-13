@@ -10,13 +10,15 @@ class GifListContainer extends React.Component {
 
     handleQuery = query => {
         console.log(query)
+
         this.setState({
             query: query
         }, () => this.fetchData())
-        
+
+        console.log(this.state)
     }
 
-    fetchData() {
+    fetchData = () => {
         let url = `https://api.giphy.com/v1/gifs/search?q=${this.state.query}&api_key=dc6zaTOxFJmzC&rating=g`
 
         fetch(url)
@@ -28,8 +30,9 @@ class GifListContainer extends React.Component {
             this.setState({
                 list: dataList
             })
-            
         })
+        console.log(this.state)
+
     }
 
 
